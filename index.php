@@ -15,6 +15,7 @@
 require_once __DIR__ . "/classes/User.php";
 require_once __DIR__ . "/classes/UserPremium.php";
 require_once __DIR__ . "/classes/Product.php";
+require_once __DIR__ . "/classes/CreditCard.php";
 
 $product1 = new Product("Latte", 12);
 $product1->setBrand("Mellin");
@@ -22,7 +23,7 @@ $product1->setBrand("Mellin");
 var_dump($product1);
 
 $user1 = new User("Luca", "Sunseri");
-$user1->setAge(16);
+$user1->setAge(18);
 
 var_dump($user1);
 
@@ -30,6 +31,14 @@ $user2 = new UserPremium("Giovanni", "Rossi");
 $user2->setAge(18);
 
 var_dump($user2);
+
+$card = new CreditCard("12346487651584", "Luca Sunseri", "10-10-2022", 455);
+
+var_dump($card);
+
+$user1->setCreditCard($card);
+
+var_dump($user1);
 
 ?>
 

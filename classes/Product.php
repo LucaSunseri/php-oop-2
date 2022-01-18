@@ -12,6 +12,7 @@ class Product
         $this->price = $_price;
     }
 
+    // Function SET 
     public function setName($_name)
     {
         $this->name = $_name;
@@ -27,6 +28,7 @@ class Product
         $this->price = $_price;
     }
 
+    // Function GET 
     public function getName($_name)
     {
         return $this->name;

@@ -7,6 +7,7 @@ class User
     private $email;
     private $age;
     protected $sale = 0;
+    private $creditCard = [];
 
     function __construct($_name, $_surname)
     {
@@ -42,6 +43,11 @@ class User
         }
     }
 
+    public function setCreditCard($_creditCard)
+    {
+        $this->creditCard[] = $_creditCard;
+    }
+
     // Function GET 
     public function getName()
     {
@@ -61,5 +67,10 @@ class User
     public function getSale()
     {
         return $this->sale;
+    }
+
+    public function getCreditCard()
+    {
+        return $this->creditCard;
     }
 }
