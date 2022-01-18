@@ -11,6 +11,26 @@
 -->
 
 <?php
+
+require_once __DIR__ . "/classes/User.php";
+require_once __DIR__ . "/classes/UserPremium.php";
+require_once __DIR__ . "/classes/Product.php";
+
+$product1 = new Product("Latte", 12);
+$product1->setBrand("Mellin");
+
+var_dump($product1);
+
+$user1 = new User("Luca", "Sunseri");
+$user1->setAge(16);
+
+var_dump($user1);
+
+$user2 = new UserPremium("Giovanni", "Rossi");
+$user2->setAge(18);
+
+var_dump($user2);
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +44,7 @@
 </head>
 
 <body>
-    <h1>cal_info</h1>
+
 </body>
 
 </html>
