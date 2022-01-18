@@ -29,17 +29,17 @@ class Product
     }
 
     // Function GET 
-    public function getName($_name)
+    public function getName()
     {
         return $this->name;
     }
 
-    public function getBrand($_brand)
+    public function getBrand()
     {
         return $this->brand;
     }
 
-    public function getPrice($_price)
+    public function getPrice()
     {
         return $this->price;
     }
