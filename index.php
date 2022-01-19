@@ -20,23 +20,33 @@ require_once __DIR__ . "/productsList.php";
 
 $user1 = new User("Luca", "Sunseri");
 $user1->setAge(18);
-$user1->setEmail("luca.sunseri@gmail.com");
+try {
+    $user1->setEmail("luca.sunseri@gmail.com");
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 $user1->setFullAddress("Via Gangi", 18, 90019, "Trabia", "Italia");
+$user1->setCart($prodotto1, $prodotto2);
+
+
 
 $user_premium1 = new UserPremium("Giovanni", "Rossi");
 $user_premium1->setAge(18);
-$user_premium1->setEmail("giovanni.rossi@libero.it");
+try {
+    $user_premium1->setEmail("giovanni.rossi@libero.it");
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 $user_premium1->setFullAddress("Via Roma", 312, 90121, "Palermo", "Italia");
-
-var_dump($user_premium1);
+$user_premium1->setCart($prodotto3, $prodotto4, $prodotto5);
 
 $card = new CreditCard("12346487651584", "Luca Sunseri", "10-10-2022", 455);
-
-var_dump($card);
 
 $user1->setCreditCard($card);
 
 var_dump($user1);
+var_dump($user_premium1);
+
 
 ?>
 
@@ -106,6 +116,12 @@ var_dump($user1);
                 <p>Indirizzo di spedizione: <br> <?php echo $user1->getFullAddress() ?></p>
                 <p>Email: <?php echo $user1->getEmail() ?></p>
                 <p>Perchè ha <?php echo $user1->getAge() ?> anni ha diritto ad un sconto del <?php echo $user1->getSale() ?>%</p>
+                <p>Il tuo carrello:</p>
+                <ul>
+                    <?php foreach ($user1->getCart() as $product) : ?>
+                        <li><?php echo $product->getName() ?></li>
+                    <?php endforeach ?>
+                </ul>
             </div>
             <div class="col">
                 <h2>Utente Premium</h2>
@@ -113,6 +129,12 @@ var_dump($user1);
                 <p>Indirizzo di spedizione: <br> <?php echo $user_premium1->getFullAddress() ?></p>
                 <p>Email: <?php echo $user_premium1->getEmail() ?></p>
                 <p>Perchè ha <?php echo $user_premium1->getAge() ?> anni ed è un Utente Premium ha diritto ad un sconto del <?php echo $user_premium1->getSale() ?>%</p>
+                <p>Il tuo carrello:</p>
+                <ul>
+                    <?php foreach ($user_premium1->getCart() as $product) : ?>
+                        <li><?php echo $product->getName() ?></li>
+                    <?php endforeach ?>
+                </ul>
             </div>
         </div>
     </div>

@@ -9,7 +9,8 @@ class User
     private $email;
     private $age;
     protected $sale = 0;
-    private $creditCard = [];
+    private $creditCard;
+    private $cart;
 
     use Address;
 
@@ -32,7 +33,7 @@ class User
 
     public function setEmail($_email)
     {
-        $this->email = $_email;
+        $this->email = $this->checkEmail($_email);
     }
 
     public function setAge($_age)
@@ -49,7 +50,12 @@ class User
 
     public function setCreditCard($_creditCard)
     {
-        $this->creditCard[] = $_creditCard;
+        $this->creditCard = $_creditCard;
+    }
+
+    public function setCart(...$_product)
+    {
+        $this->cart = $_product;
     }
 
     // Function GET 
@@ -81,5 +87,20 @@ class User
     public function getCreditCard()
     {
         return $this->creditCard;
+    }
+
+    public function getCart()
+    {
+        return $this->cart;
+    }
+
+    // Function PRIVATE
+    private function checkEmail($_email)
+    {
+        if (strpos($_email, "@")) {
+            return $_email;
+        } else {
+            throw new Exception('Inserire un email valida');
+        }
     }
 }
