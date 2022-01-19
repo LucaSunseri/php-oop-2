@@ -6,9 +6,10 @@ class Product
     private $brand;
     private $price;
 
-    function __construct($_name, $_price)
+    function __construct($_name, $_brand,  $_price)
     {
         $this->name = $_name;
+        $this->brand = $_brand;
         $this->price = $_price;
     }
 

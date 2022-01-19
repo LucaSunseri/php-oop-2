@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/Address.php";
+
 class User
 {
     private $name;
@@ -8,6 +10,8 @@ class User
     private $age;
     protected $sale = 0;
     private $creditCard = [];
+
+    use Address;
 
     function __construct($_name, $_surname)
     {
@@ -62,6 +66,11 @@ class User
     public function getAge()
     {
         return $this->age;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     public function getSale()
