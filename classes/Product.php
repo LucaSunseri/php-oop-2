@@ -10,7 +10,7 @@ class Product
     {
         $this->name = $_name;
         $this->brand = $_brand;
-        $this->price = $_price;
+        $this->price = $this->formatPrice($_price);
     }
 
     // Function SET 
@@ -26,7 +26,7 @@ class Product
 
     public function setPrice($_price)
     {
-        $this->price = $_price;
+        $this->price = $this->formatPrice($_price);
     }
 
     // Function GET 
@@ -43,5 +43,11 @@ class Product
     public function getPrice()
     {
         return $this->price;
+    }
+
+    // Function PRIVATE
+    private function formatPrice($_price)
+    {
+        return number_format($_price, 2, ",", ".");
     }
 }
