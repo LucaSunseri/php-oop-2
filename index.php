@@ -65,7 +65,7 @@ var_dump($user_premium1);
     <h1 class="text-center">Shop &#128513; &#128722;</h1>
 
     <div class="container">
-        <h2>Lista profotti presenti nello shop:</h2>
+        <h2>Lista prodotti presenti nello shop:</h2>
         <table class="table mb-5">
             <thead>
                 <tr>
